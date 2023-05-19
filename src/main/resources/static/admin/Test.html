@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="ThemeBucket">
+
+  <title>报修页面</title>
+
+    <!-- 引入ElementUI样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- 引入ElementUI组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+
+
+</head>
+
+
+<template>
+    <div class="login-container">
+        <el-form ref="form" :model="form" :rules="rules" label-width="80px">
+            <el-form-item label="用户名" prop="username">
+                <el-input v-model="form.username" placeholder="请输入用户名"></el-input>
+            </el-form-item>
+            <el-form-item label="密码" prop="password">
+                <el-input type="password" v-model="form.password" placeholder="请输入密码"></el-input>
+            </el-form-item>
+            <el-form-item>
+                <el-button type="primary" @click="handleLogin">登录</el-button>
+            </el-form-item>
+        </el-form>
+    </div>
+</template>
+
+<script>
+    export default {
+        data() {
+            return {
+                form: {
+                    username: '',
+                    password: ''
+                },
+                rules: {
+                    username: [
+                        { required: true, message: '请输入用户名', trigger: 'blur' }
+                    ],
+                    password: [
+                        { required: true, message: '请输入密码', trigger: 'blur' }
+                    ]
+                }
+            }
+        },
+        methods: {
+            handleLogin() {
+                this.$refs.form.validate((valid) => {
+                    if (valid) {
+                        // 发送登录请求
+                        // ...
+                    } else {
+                        console.log('表单验证失败')
+                    }
+                })
+            }
+        }
+    }
+</script>
+
+<style>
+    .login-container {
+        width: 400px;
+        margin: 100px auto;
+    }
+</style>
+
+
+</html>

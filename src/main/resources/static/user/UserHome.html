@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+
+    <title>用户主页</title>
+
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/style-responsive.css" rel="stylesheet">
+
+
+</head>
+
+<body class="sticky-header">
+
+
+
+
+
+<section>
+    <!-- 左边导航-->
+    <div class="left-side sticky-left-side">
+
+        <!--两个logo-->
+        <div class="logo">
+            <a href="#"><img src="../images/logo.png" alt=""></a>
+        </div>
+
+        <div class="logo-icon text-center">
+            <a href="#"><img src="../images/logo_icon.png" alt=""></a>
+        </div>
+        <!--两个logo结束-->
+
+        <div class="left-side-inner">
+
+            <!-- 仅对移动设备可见 -->
+            <!-- 仅对移动设备可见结束 -->
+
+            <!--菜单-->
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li><a href="#"><i class="fa fa-home"></i> <span>主页</span></a></li>
+
+                <li><a href="UserRepair.html"><i class="fa fa-cogs"></i> <span>修理</span></a></li>
+
+                <li><a href="UserPay.html"><i class="fa fa-bullhorn"></i> <span>缴费</span></a></li>
+
+                <li><a href="../index.html"><i class="fa fa-sign-in"></i> <span>登出</span></a></li>
+
+            </ul>
+            <!--菜单结束-->
+
+        </div>
+    </div>
+    <!-- 左边导航end-->
+    
+    <!-- 右侧主体 -->
+    <div id="chen" class="main-content" >
+
+        <!-- 头部显示栏-->
+        <div class="header-section">
+
+
+        <!--搜索框 - 删除-->
+
+
+        <!--基本信息 -->
+        <div class="menu-right">
+            <ul class="notification-menu">
+                <!--通知栏-->
+                <!--通知栏结束-->
+                <li>
+                    <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <img src="/img/photo" alt="" />
+                        {{name}}
+                        <span class="caret"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--基本信息 -->
+
+        </div>
+        <!-- 头部显示栏end-->
+
+        <!-- 页面主体头部-->
+        <!-- 页面主体头部end-->
+
+        <!--主体 -->
+        <div class="wrapper">
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <div class="profile-pic text-center">
+                                        <img alt="" src="/img/photo">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <ul class="p-info">
+                                        <li>
+                                            <div class="title">姓名</div>
+                                            <div class="desk">{{name}}</div>
+                                        </li>
+                                        <li>
+                                            <div class="title">联系电话</div>
+                                            <div class="desk">{{phone}}</div>
+                                        </li>
+                                        <li>
+                                            <div class="title">性别</div>
+                                            <div class="desk">{{sex}}</div>
+                                        </li>
+                                        <li>
+                                            <div class="title">身份</div>
+                                            <div class="desk">用户</div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <div class="panel-body p-states">
+                                    <div class="summary pull-left">
+                                        <h4><span>统计信息1</span></h4>
+                                        <span>个人待缴费合计</span>
+                                        <h3>{{sum1}}</h3>
+                                    </div>
+                                    <div id="expense" class="chart-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <div class="panel-body p-states green-box">
+                                    <div class="summary pull-left">
+                                        <h4><span>统计信息2</span></h4>
+                                        <span>个人待修理合计</span>
+                                        <h3>{{sum2}}</h3>
+                                    </div>
+                                    <div id="pro-refund" class="chart-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <div class="profile-desk">
+                                        <h1>名下房产信息</h1>
+
+                                            <section class="panel">
+                                                <header class="panel-heading">
+                                                    房产信息表
+                                                    <span class="tools pull-right">
+                                </span>
+                                                </header>
+                                                <div class="panel-body">
+                                                    <table class="table">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>持有人</th>
+                                                            <th>地址</th>
+                                                            <th>用途</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr v-for="estate in list">
+                                                            <td>{{estate.id}}</td>
+                                                            <td>{{estate.name}}</td>
+                                                            <td>{{estate.address}}</td>
+                                                            <td>{{estate.purpose}}</td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </section>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <div class="profile-desk">
+                                        <h1>修改个人信息</h1>
+                                        <form method="post" class="form-signin" action="/user/changeInfo">
+                                            <div class="login-wrap">
+                                                <input type="password" name="password1" class="form-control" placeholder="旧密码">
+                                                <input type="password" name="password2" class="form-control" placeholder="新密码">
+                                                <input type="text" name="phone" class="form-control" placeholder="联系电话">
+                                                <button class="btn btn-lg btn-login btn-block" type="submit">
+                                                    <i class="fa fa-check"></i>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <div class="profile-desk">
+                                        <h1>修改头像</h1>
+                                        <form method="post" class="form-signin" action="/user/changeHead" enctype="multipart/form-data">
+                                            <div class="login-wrap">
+                                                <b>头像上传</b>
+                                                <input type="file" name="head" class="form-control" placeholder="选择头像" accept="image/gif,image/jpg,image/png,image/jpeg">
+                                                <button class="btn btn-lg btn-login btn-block" type="submit">
+                                                    <i class="fa fa-check"></i>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!--主体end-->
+
+        <!--页脚部分-->
+        <footer>
+            2022 &copy; 田园小区物业管理 by 辰
+        </footer>
+        <!--页脚部分end-->
+
+
+    </div>
+    <!-- 右侧主体end-->
+</section>
+
+<!--前后端分离代码实现-->
+<script src="../package/axios.min.js"></script>
+<script src="../package/vue.js"></script>
+<script>
+    window.onload=function (){
+        var vue = new Vue({
+            "el":"#chen",
+            data:{
+                name:"",
+                phone:"",
+                sex:"",
+                sum1:"",
+                sum2:"",
+                list:null
+            },
+            beforeCreate(){
+                axios({
+                    method:"GET",
+                    url:"/user/getHomeInfo"
+                })
+                    .then(function (value) {
+                        vue.name = value.data.name;
+                        vue.phone = value.data.phone;
+                        vue.sex = value.data.sex;
+                        vue.sum1 = value.data.sum1;
+                        vue.sum2 = value.data.sum2;
+                        if(value.data.changeInfo!=null)
+                            alert(value.data.changeInfo);
+                    })
+                    .catch(function (reason) {
+                    });
+            },
+            created(){
+                axios({
+                    method:"GET",
+                    url:"/user/getEstateInfo"
+                })
+                    .then(function (value) {
+                        vue.list = value.data;
+                    })
+                    .catch(function (reason) {
+                    });
+            }
+            ,
+            methods:{}
+
+        });
+    }
+</script>
+
+
+</body>
+</html>
